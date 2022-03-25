@@ -24,4 +24,16 @@ let foo = Foo()
 
 ## bar
 
-`bar` is bar.
+`bar` is code span.
+_bar_ is italic.
+__bar__ is bold.
+
+- foo
+- bar
+  - test
+  - test2
+
+https://uhooi.github.io/
+
+[https://uhooi.github.io/](https://uhooi.github.io/)
+
