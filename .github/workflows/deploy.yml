@@ -26,4 +26,7 @@ jobs:
     - name: Setup
       run: make setup
     - name: Deploy to GitHub Pages
-      run: make deploy
+      run: |
+        git config --global user.email "the_uhooi@yahoo.co.jp"
+        git config --global user.name "uhooi"
+        make deploy
