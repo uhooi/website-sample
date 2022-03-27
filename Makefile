@@ -16,6 +16,7 @@ help:
 run:
 	${PUBLISH_CLI_PATH} run
 
-.PHONY: deploy
-deploy:
-	${PUBLISH_CLI_PATH} deploy
+.PHONY: generate
+generate:
+	${PUBLISH_CLI_PATH} generate
+

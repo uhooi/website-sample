@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: swift:"5.6"
+    container: "swift:5.6"
     steps:
     - uses: actions/checkout@v3
     - name: Build
@@ -19,14 +19,18 @@ jobs:
 
   deploy-github-pages:
     runs-on: ubuntu-latest
-    container: swift:"5.6"
+    container: "swift:5.6"
     needs: build
     steps:
     - uses: actions/checkout@v3
     - name: Setup
       run: make setup
+    - name: Generate the website
+      run: make generate
     - name: Deploy to GitHub Pages
-      run: |
-        git config --global user.email "the_uhooi@yahoo.co.jp"
-        git config --global user.name "uhooi"
-        make deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_branch: master
+        publish_dir: ./Output
+
