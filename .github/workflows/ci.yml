@@ -7,13 +7,23 @@ on:
     branches: [ main ]
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
     container: "swift:5.6"
     steps:
     - uses: actions/checkout@v3
-    - name: Test
+    - name: Build
       run: |
         swift --version
         swift package --version
-        swift test -v
+        swift build -v
+
+  generate-website:
+    runs-on: ubuntu-latest
+    container: "swift:5.6"
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup
+      run: make setup
+    - name: Generate the website
+      run: make generate
