@@ -25,7 +25,7 @@ struct WebsiteSample: Website {
 try WebsiteSample().publish(using: [
     .addMarkdownFiles(),
     .copyResources(),
-    .generateHTML(withTheme: .foundation),
+    .generateHTML(withTheme: .uhooi),
     .generateRSSFeed(including: [.posts]),
     .generateSiteMap(),
     .deploy(using: .gitHub("uhooi/website-sample-output", useSSH: false))
