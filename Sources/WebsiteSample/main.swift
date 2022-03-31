@@ -1,6 +1,7 @@
 import Foundation
 import Publish
 import Plot
+import SplashPublishPlugin
 
 // This type acts as the configuration for your website.
 struct WebsiteSample: Website {
@@ -23,6 +24,7 @@ struct WebsiteSample: Website {
 
 // This will generate your website using the built-in Foundation theme:
 try WebsiteSample().publish(using: [
+    .installPlugin(.splash(withClassPrefix: "")),
     .addMarkdownFiles(),
     .copyResources(),
     .generateHTML(withTheme: .uhooi),

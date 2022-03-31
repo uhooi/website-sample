@@ -11,7 +11,10 @@ extension Theme {
     static var uhooi: Self {
         Theme(
             htmlFactory: UhooiHTMLFactory(),
-            resourcePaths: ["Resources/UhooiTheme/styles.css"]
+            resourcePaths: [
+                "Resources/UhooiTheme/styles.css",
+                "Resources/SplashPublishPlugin/sundellsColors.css"
+            ]
         )
     }
 }

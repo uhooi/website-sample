@@ -55,6 +55,24 @@
       }
     },
     {
+      "identity" : "splash",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/johnsundell/splash.git",
+      "state" : {
+        "revision" : "7f4df436eb78fe64fe2c32c58006e9949fa28ad8",
+        "version" : "0.16.0"
+      }
+    },
+    {
+      "identity" : "splashpublishplugin",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/johnsundell/splashpublishplugin",
+      "state" : {
+        "revision" : "34bb50bd83b2a40c63afc35f090c76619dc149ce",
+        "version" : "0.1.0"
+      }
+    },
+    {
       "identity" : "sweep",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/johnsundell/sweep.git",
