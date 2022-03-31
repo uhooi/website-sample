@@ -3,11 +3,11 @@
 import PackageDescription
 
 let package = Package(
-    name: "MyWebsite",
+    name: "WebsiteSample",
     products: [
         .executable(
-            name: "MyWebsite",
-            targets: ["MyWebsite"]
+            name: "WebsiteSample",
+            targets: ["WebsiteSample"]
         ),
     ],
     dependencies: [
@@ -15,7 +15,7 @@ let package = Package(
     ],
     targets: [
         .executableTarget(
-            name: "MyWebsite",
+            name: "WebsiteSample",
             dependencies: [
                 .product(name: "Publish", package: "publish"),
             ]

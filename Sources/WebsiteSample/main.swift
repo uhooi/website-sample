@@ -3,7 +3,7 @@ import Publish
 import Plot
 
 // This type acts as the configuration for your website.
-struct MyWebsite: Website {
+struct WebsiteSample: Website {
     enum SectionID: String, WebsiteSectionID {
         // Add the sections that you want your website to contain here:
         case posts
@@ -14,7 +14,7 @@ struct MyWebsite: Website {
     }
 
     // Update these properties to configure your website:
-    var url = URL(string: "https://uhooi.github.io")!
+    var url = URL(string: "https://uhooi.github.io/website-sample-output")!
     var name = "THE Uhooi"
     var description = "Uhooi's Website"
     var language: Language { .japanese }
@@ -22,11 +22,11 @@ struct MyWebsite: Website {
 }
 
 // This will generate your website using the built-in Foundation theme:
-try MyWebsite().publish(using: [
+try WebsiteSample().publish(using: [
     .addMarkdownFiles(),
     .copyResources(),
     .generateHTML(withTheme: .foundation),
     .generateRSSFeed(including: [.posts]),
     .generateSiteMap(),
-    .deploy(using: .gitHub("uhooi/uhooi.github.io", useSSH: false))
+    .deploy(using: .gitHub("uhooi/website-sample-output", useSSH: false))
 ])

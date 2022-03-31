@@ -31,7 +31,7 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       with:
         personal_token: ${{ secrets.PERSONAL_TOKEN }}
-        external_repository: uhooi/uhooi.github.io
+        external_repository: uhooi/website-sample-output
         publish_branch: master
         publish_dir: ./Output
         user_name: 'uhooi'
