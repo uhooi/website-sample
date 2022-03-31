@@ -11,7 +11,10 @@ extension Theme {
     static var uhooi: Self {
         Theme(
             htmlFactory: UhooiHTMLFactory(),
-            resourcePaths: ["Resources/UhooiTheme/styles.css"]
+            resourcePaths: [
+                "Resources/UhooiTheme/styles.css",
+                "Resources/SplashPublishPlugin/sundellsColors.css",
+            ]
         )
     }
 }
@@ -62,7 +65,10 @@ private struct UhooiHTMLFactory<Site: Website>: HTMLFactory {
                       context: PublishingContext<Site>) throws -> HTML {
         HTML(
             .lang(context.site.language),
-            .head(for: item, on: context.site),
+            .head(for: item, on: context.site, stylesheetPaths: [
+                "/styles.css",
+                "/sundellsColors.css",
+            ]),
             .body(
                 .class("item-page"),
                 .components {
