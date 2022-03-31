@@ -13,18 +13,23 @@ extension Theme {
             htmlFactory: UhooiHTMLFactory(),
             resourcePaths: [
                 "Resources/UhooiTheme/styles.css",
-                "Resources/SplashPublishPlugin/sundellsColors.css"
+                "Resources/SplashPublishPlugin/sundellsColors.css",
             ]
         )
     }
 }
 
 private struct UhooiHTMLFactory<Site: Website>: HTMLFactory {
+    private let stylesheetPaths: [Path] = [
+        "/styles.css",
+        "/sundellsColors.css",
+    ]
+
     func makeIndexHTML(for index: Index,
                        context: PublishingContext<Site>) throws -> HTML {
         HTML(
             .lang(context.site.language),
-            .head(for: index, on: context.site),
+            .head(for: index, on: context.site, stylesheetPaths: stylesheetPaths),
             .body {
                 SiteHeader(context: context, selectedSelectionID: nil)
                 Wrapper {
@@ -49,7 +54,7 @@ private struct UhooiHTMLFactory<Site: Website>: HTMLFactory {
                          context: PublishingContext<Site>) throws -> HTML {
         HTML(
             .lang(context.site.language),
-            .head(for: section, on: context.site),
+            .head(for: section, on: context.site, stylesheetPaths: stylesheetPaths),
             .body {
                 SiteHeader(context: context, selectedSelectionID: section.id)
                 Wrapper {
@@ -65,7 +70,7 @@ private struct UhooiHTMLFactory<Site: Website>: HTMLFactory {
                       context: PublishingContext<Site>) throws -> HTML {
         HTML(
             .lang(context.site.language),
-            .head(for: item, on: context.site),
+            .head(for: item, on: context.site, stylesheetPaths: stylesheetPaths),
             .body(
                 .class("item-page"),
                 .components {
@@ -87,7 +92,7 @@ private struct UhooiHTMLFactory<Site: Website>: HTMLFactory {
                       context: PublishingContext<Site>) throws -> HTML {
         HTML(
             .lang(context.site.language),
-            .head(for: page, on: context.site),
+            .head(for: page, on: context.site, stylesheetPaths: stylesheetPaths),
             .body {
                 SiteHeader(context: context, selectedSelectionID: nil)
                 Wrapper(page.body)
@@ -100,7 +105,7 @@ private struct UhooiHTMLFactory<Site: Website>: HTMLFactory {
                          context: PublishingContext<Site>) throws -> HTML? {
         HTML(
             .lang(context.site.language),
-            .head(for: page, on: context.site),
+            .head(for: page, on: context.site, stylesheetPaths: stylesheetPaths),
             .body {
                 SiteHeader(context: context, selectedSelectionID: nil)
                 Wrapper {
@@ -124,7 +129,7 @@ private struct UhooiHTMLFactory<Site: Website>: HTMLFactory {
                             context: PublishingContext<Site>) throws -> HTML? {
         HTML(
             .lang(context.site.language),
-            .head(for: page, on: context.site),
+            .head(for: page, on: context.site, stylesheetPaths: stylesheetPaths),
             .body {
                 SiteHeader(context: context, selectedSelectionID: nil)
                 Wrapper {
